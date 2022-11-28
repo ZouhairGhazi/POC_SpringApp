@@ -1,0 +1,28 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <h1>Sign Up</h1>
+
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" name="firstname" formControlName="firstname" required>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" name="lastname" formControlName="lastname">
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email" formControlName="email">
+
+    <br>
+     <select name="phoneCode" required>
+      <option selected hidden value="">Code</option>
+      <option value="66">+98</option>
+      <option value="66">+99</option>
+      <option value="66">+90</option>
+      <option value="66">+66</option>
+     </select>
+     <input type="phone" name="phone" placeholder="812345678" required>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="submit" class="btn">Sign Up</button>
+    </div>
+  </div>
+</form>
