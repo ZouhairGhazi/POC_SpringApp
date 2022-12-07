@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {validateAndRewriteCoreSymbol} from "@angular/compiler-cli/src/ngtsc/imports";
 // @ts-ignore
 import { AccountService, AlertService } from '@app/_services';
+import {JwtAuthService} from "../jwt-auth.service";
 
 
 @Component({
@@ -13,31 +14,28 @@ import { AccountService, AlertService } from '@app/_services';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  contactForm = new FormGroup(
-    {
-      email: new FormControl(),
-      password: new FormControl()
-    }
-  )
+
+
+  username= ''
+  password= ''
 
 
 
-  constructor(
-  ) { }
+
+  constructor(private jwt: JwtAuthService
+  ) {
+  }
 
 
   ngOnInit(): void {
 
   }
 
-  onSubmit(){
-    console.log(this.contactForm.value)
+  onSubmit() {
+    let request: any = {
+      "username" : this.username,
+      "password" : this.password
     }
-
-
-
-
-
-
-
+    this.jwt.authenticate(request).subscribe(data => console.log(data))
   }
+}
