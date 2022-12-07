@@ -1,4 +1,4 @@
-package back_end_app.service;
+package back_end_app.service.serviceInterfaces;
 
 import back_end_app.domaine.Role;
 import back_end_app.domaine.User;

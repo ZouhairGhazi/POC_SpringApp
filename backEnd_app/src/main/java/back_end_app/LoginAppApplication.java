@@ -29,9 +29,10 @@ public class LoginAppApplication {
 		return args -> {
 			userService.saveRole(new Role(null,"ROLE_USER"));
 			userService.saveRole(new Role(null,"ROLE_ADMIN"));
+			userService.saveRole(new Role(null,"ROLE_MANAGER"));
 
-			userService.saveUser(new User(null,"user1","user1","1234",new ArrayList<>()));
-			userService.saveUser(new User(null,"user2","user2","1234",new ArrayList<>()));
+			userService.saveUser(new User(null,"user1","user1","user1","1234","email","address","phone",new ArrayList<>(),null));
+			userService.saveUser(new User(null,"user2","user2","user2","1234","email","address","phone",new ArrayList<>(),null));
 
 			userService.addRoleToUser("user1","ROLE_ADMIN");
 			userService.addRoleToUser("user2","ROLE_USER");

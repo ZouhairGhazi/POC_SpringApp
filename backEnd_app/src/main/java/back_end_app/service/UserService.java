@@ -4,6 +4,7 @@ import back_end_app.domaine.Role;
 import back_end_app.repository.RoleRepo;
 import back_end_app.repository.UserRepo;
 import back_end_app.domaine.User;
+import back_end_app.service.serviceInterfaces.UserServiceInterface;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -42,7 +43,7 @@ public class UserService implements UserServiceInterface, UserDetailsService {
     }
     @Override
     public User saveUser(User user) {
-        log.info("saving new user {} to database", user.getName());
+        log.info("saving new user {} to database", user.getFirstName());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepo.save(user);
     }

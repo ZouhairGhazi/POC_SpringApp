@@ -16,10 +16,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String username;
     private String password;
+    private String email;
+    private String address;
+    private String phone;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
+    @ManyToOne
+    private User manager;
 
 }
